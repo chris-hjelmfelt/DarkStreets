@@ -1,0 +1,63 @@
+body {
+  background-color: slategrey;
+}
+
+.mainDiv {
+  width:800px; 
+  height:600px; 
+  background-color: rgb(70, 80,90);
+  border:3px solid black; 
+  padding-top:10px; 
+  text-align:center;
+}
+
+.startMessage {
+  width: 500px;   
+  margin: auto; 
+  text-align: left;
+  padding-top: 30px; 
+  padding-bottom: 50px; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.lostMessage {
+  width: 700px;   
+  margin: auto; 
+  text-align: center;
+  font-size: 2em;
+  padding-top: 100px; 
+  padding-bottom: 100px; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.wonMessage {
+  width: 700px;   
+  margin: auto; 
+  text-align: center;
+  font-size: 3em;
+  padding-top: 80px; 
+  padding-bottom: 10px; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.storyPart {
+  width: 700px;
+  margin: auto; 
+  text-align: left;
+  font-size: 1.7em;
+  padding-bottom: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.playButton {
+  background-color:black; 
+  margin: auto; 
+  border-radius:20px;
+}
+
+.playLink {
+  color:red; 
+  text-decoration: none; 
+  font-size: 2em; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

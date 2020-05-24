@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dark Streets</title>
+</head>
+  <script src="pixi.min.js"></script>
+<body>
+    <script type="text/javascript">
+    let type = "WebGL"
+    if(!PIXI.utils.isWebGLSupported()){
+      type = "canvas"
+    }   
+    
+
+		//Aliases
+		let Application = PIXI.Application,
+				loader = PIXI.loader,
+				resources = PIXI.loader.resources,
+				Sprite = PIXI.Sprite;
+        Rectangle = PIXI.Rectangle;
+
+		//Create a Pixi Applirocketion
+		let app = new Application({ 
+				width: 800, 
+        height: 600,   
+        backgroundColor: 0x000000,                   
+				antialias: true, 
+				transparent: false, 
+				resolution: 1
+			}
+    );
+
+    // Add the canvas that Pixi automatically created for you to the HTML document
+		document.body.appendChild(app.view);
+
+    // Load images and run the `setup` function when it's done
+    loader
+      .add("Assets/NoirCity.png")
+      .add("Assets/WeaponSprites.png")
+      .add("Assets/HitBox.png")
+      .add("Assets/Pspear.png")
+      .add("Assets/Player01.png")
+      .add("Assets/Player02.png")
+      .add("Assets/Player03.png")
+      .add("Assets/Player04.png")
+      .add("Assets/Enemy01.png")
+      .add("Assets/Enemy01arm.png")
+      .add("Assets/Enemy02.png")
+      .add("Assets/Enemy02arm.png")
+      .load(setup);
+
+    // Misc variables
+    let state, player, enemy, round="Round 1", enemyNum = 1; 
+    let playTime = true;
+    let startDelay = 0;
+
+
+    // This `setup` function will run after images have loaded
+    function setup() {	 
+      // Add graphics and text    
+      addSprites(); 
+      addHealthBars(); 
+      addMessages();       
+
+      // Place player and enemy in default positions
+      defaultPositions();
+
+      // Set the game state
+			state = play;
+			
+			// Start the game loop by adding the `gameLoop` function to 
+			// Pixi's `ticker` and providing it with a `delta` argument.
+			app.ticker.add(delta => gameLoop(delta));
+		}
+
+
+		function gameLoop(delta){
+			// Update the current game state:
+			state(delta);
+		}
+
+
+		function play(delta) {
+      if (playTime == true && startDelay >= 200){ // Start the fight
+        mainMessage.visible = false;
+        countMessage.visible = false;
+
+        //Use the player's velocity to make them move
+        player.x += player.vx;
+        player.y += player.vy
+        
+        // Action
+        playerMove();
+        enemyMove();
+        enemyAttack();   
+
+      } else if (startDelay == 0){  // Start the new round
+        mainMessage.text = round;
+        mainMessage.visible = true;
+        resetRound();
+      } else if (startDelay == 50){  // Countdown
+        countMessage.text = "3";
+        countMessage.visible = true;
+      } else if (startDelay == 100){
+        countMessage.text = "2";
+      } else if (startDelay == 150){
+        countMessage.text = "1";
+      }
+      startDelay += 1;	
+    }   
+  </script>
+
+  <!-- Javascript for keyboard input -->
+  <script type="text/javascript" src="keyboard.js"></script>
+  <!-- Javascript for loading sprites -->
+  <script type="text/javascript" src="sprites.js"></script>
+  <!-- Javascript for collision detection -->
+  <script type="text/javascript" src="collision.js"></script>
+  <!-- Javascript for the attacking -->
+  <script type="text/javascript" src="attack.js"></script>
+  <script type="text/javascript" src="enemy_attack.js"></script>
+  <!-- Javascript for movement -->
+  <script type="text/javascript" src="movement.js"></script>
+  <script type="text/javascript" src="enemy_movement.js"></script>
+  <!-- Javascript for health bars, etc -->
+  <script type="text/javascript" src="scoring.js"></script>
+</body>
+</html>

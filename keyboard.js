@@ -8,8 +8,8 @@ let left = keyboardHelper(37),
     dKey = keyboardHelper(68), // D
     sKey = keyboardHelper(83), // S
     aKey = keyboardHelper(65); // A
-    hitKey1 = keyboardHelper(188);  //,
-    hitKey2 = keyboardHelper(190);  //.
+    hitKey1 = keyboardHelper(49);  // 1 (attack 1)
+    hitKey2 = keyboardHelper(50);  // 2 (attack 2)
 
 //Left arrow key `press` method
 left.press = () => {
@@ -102,14 +102,14 @@ aKey.release = () => {
 };
 
 hitKey1.press = () => {  
-  playerAttack(1);
+  playerAttack("1");
 }; 
 hitKey1.release = () => {   
  
 };
 
 hitKey2.press = () => {  
-  playerAttack(2);
+  playerAttack("2");
 }; 
 hitKey2.release = () => {   
  

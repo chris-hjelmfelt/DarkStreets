@@ -2,127 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GITD Noir</title>
+  <title>Dark Streets</title>
+  <link rel="stylesheet" type="text/css" href="DSstyle.css">
 </head>
-  <script src="pixi.min.js"></script>
-<body>
-    <script type="text/javascript">
-    let type = "WebGL"
-    if(!PIXI.utils.isWebGLSupported()){
-      type = "canvas"
-    }   
+<body> 
+  <div class="mainDiv">
+    <img src="Assets/Title.png">
+    <div class="startMessage">
+      <h2>Fight your enemies in three rounds.</h2>
+      &nbsp; <br>
+      <h2>Move using arrow keys </h2>
+      <h2>Attack using numbers: 1, 2 </h2>
+    </div>
+    <div class="playButton" style="width:150px;">
+      <h2><a class="playLink" href="main.html">Play</a></h2>
+    </div>
     
-
-		//Aliases
-		let Application = PIXI.Application,
-				loader = PIXI.loader,
-				resources = PIXI.loader.resources,
-				Sprite = PIXI.Sprite;
-        Rectangle = PIXI.Rectangle;
-
-		//Create a Pixi Applirocketion
-		let app = new Application({ 
-				width: 800, 
-        height: 600,   
-        backgroundColor: 0x000000,                   
-				antialias: true, 
-				transparent: false, 
-				resolution: 1
-			}
-    );
-
-    // Add the canvas that Pixi automatically created for you to the HTML document
-		document.body.appendChild(app.view);
-
-    // Load an image and run the `setup` function when it's done
-    loader
-      .add("Assets/Street.png")
-      .add("Assets/Circle.png")
-      .add("Assets/Pspear.png")
-      .add("Assets/Espear.png")
-      .add("Assets/Player01.png")
-      .add("Assets/Player02.png")
-      .add("Assets/Player03.png")
-      .add("Assets/Enemy01.png")
-      .add("Assets/Enemy02.png")
-      .add("Assets/Enemy03.png")
-      .load(setup);
-
-    let state, player, enemy, Pthrust = 40, Ethrust = -80, eHitPoints, pHitPoints;
-    let playTime = true;
-    let startDelay = 0;
-
-    // This `setup` function will run after images have loaded
-    function setup() {	     
-      addSprites(); // Load all sprites
-      addHealthBars();
-
-      // A place to display messages
-			message = new PIXI.Text("Player HP ");
-			app.stage.addChild(message);
-			message.position.set(50, 10);
-      message.style = {fill: "Black", font: "14px PetMe64"};  
-      message2 = new PIXI.Text("Enemy HP ");
-			app.stage.addChild(message2);
-			message2.position.set(550, 10);
-      message2.style = {fill: "Black", font: "14px PetMe64"}; 
-      mainMessage = new PIXI.Text("Game Over");
-			app.stage.addChild(mainMessage);      
-      mainMessage.anchor.x = 0.5;
-      mainMessage.anchor.y = 0.5;
-      mainMessage.position.set(400, 300);
-      mainMessage.visible = false;
-      mainMessage.style = {fill: "Black", fontSize: 60, fontWeight: 'bold',font: "PetMe64"};
-
-      defaultPositions();
-
-      //Set the game state
-			state = play;
-			
-			//Start the game loop by adding the `gameLoop` function to 
-			//Pixi's `ticker` and providing it with a `delta` argument.
-			app.ticker.add(delta => gameLoop(delta));
-		}
-
-		function gameLoop(delta){
-			//Update the current game state:
-			state(delta);
-		}
-
-		function play(delta) {
-      if (playTime == true && startDelay >= 250){
-        mainMessage.visible = false;
-        //Use the player's velocity to make them move
-        player.x += player.vx;
-        player.y += player.vy
-        
-        playerMove();
-        enemyMove();
-        enemyAttack();   
-
-      }  else if (startDelay == 100){
-        mainMessage.text = "3";
-        mainMessage.visible = true;
-      } else if (startDelay == 150){
-        mainMessage.text = "2";
-      } else if (startDelay == 200){
-        mainMessage.text = "1";
-      }
-      startDelay += 1;	
-    }   
-  </script>
-
-  <!-- Javascript for keyboard input -->
-  <script type="text/javascript" src="keyboard.js"></script>
-  <!-- Javascript for loading sprites -->
-  <script type="text/javascript" src="sprites.js"></script>
-  <!-- Javascript for collision detection -->
-  <script type="text/javascript" src="collision.js"></script>
-  <!-- Javascript for the attacking -->
-  <script type="text/javascript" src="attack.js"></script>
-  <!-- Javascript for movement -->
-  <script type="text/javascript" src="movement.js"></script>
-  <!-- Javascript for health bars, etc -->
-  <script type="text/javascript" src="scoring.js"></script>
+  </div>
 </body>
 </html>
