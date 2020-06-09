@@ -8,12 +8,12 @@ function playerAttack(attackNum) {
   if (pWait == false){ // enough time has passed between hits
     pWait = true;            
     if (attackNum == "1"){ 
-      pDamage = 10;    
+      pDamage = 5;    
       changePlayerStance("P2");
       setTimeout(changePlayerStance.bind(null, "P1"), 200);
       setTimeout(function(){pWait = false;}, 400); // delay before another hit  
     } else if (attackNum == "2"){ 
-      pDamage = 20;
+      pDamage = 10;
       changePlayerStance("P4");
       setTimeout(changePlayerStance.bind(null, "P3"), 50);
       setTimeout(changePlayerStance.bind(null, "P4"), 200);
@@ -28,7 +28,7 @@ function playerAttack(attackNum) {
 
 
 function pHitCheck() {
-  if (hitTestRectangle(playerEdge, enemy)) {  
+  if (hitTestRectangle(playerEdge, enemyhitbox)) {  
     eHitWidth =  eHitWidth - pDamage;
     eHitPoints.clear();
     eHitPoints.beginFill(0xDE3249);
@@ -93,17 +93,11 @@ function endGame() {
       enemyNum = 2;
       startDelay = -100;
       playTime = true
-      eSpear = spear4;
-      spear4.visible = true;	
-      spear3.visible = false;	
     } else if (round == "Round 2") {
       round = "Round 3"
       enemyNum = 3;
       startDelay = -100;
       playTime = true
-      eSpear = spear2;
-      spear2.visible = true;	
-      spear4.visible = false;	
     } else if (round == "Round 3") {
       setTimeout(finish, 1000);
     }

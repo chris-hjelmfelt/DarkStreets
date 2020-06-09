@@ -5,7 +5,7 @@ function addSprites() {
   //Create a rectangle object that defines the position and
   //size of the sub-image you want to extract from the texture
 
-  let city = new PIXI.Texture(loader.resources["Assets/NoirCity.png"].texture﻿, new PIXI.Rectangle(0, 0, 1200, 1061));
+  let city = new PIXI.Texture(loader.resources["Assets/NoirCity.png"].texture﻿, new PIXI.Rectangle(0, 0, 1197, 1061));
   background = new Sprite(city); 
   background.x = 0;
   background.y = 0; 
@@ -14,12 +14,18 @@ function addSprites() {
   app.stage.addChild(background);  
 
   let hb = new PIXI.Texture(loader.resources["Assets/HitBox.png"].texture﻿, new PIXI.Rectangle(0, 0, 50, 120));
-  hitbox = new Sprite(hb); 
-  hitbox.x = 0;
-  hitbox.y = 0; 
-  hitbox.anchor.x = 0;
-  hitbox.anchor.y = 0;	 
-  app.stage.addChild(hitbox);  
+  playerhitbox = new Sprite(hb); 
+  playerhitbox.x = 0;
+  playerhitbox.y = 0; 
+  playerhitbox.anchor.x = 0;
+  playerhitbox.anchor.y = 0;	 
+  app.stage.addChild(playerhitbox);  
+  enemyhitbox = new Sprite(hb); 
+  enemyhitbox.x = 0;
+  enemyhitbox.y = 0; 
+  enemyhitbox.anchor.x = 0;
+  enemyhitbox.anchor.y = 0;	 
+  app.stage.addChild(enemyhitbox);  
 
   let sharp = new PIXI.Texture(loader.resources["Assets/Pspear.png"].texture﻿, new PIXI.Rectangle(0, 0, 50, 5));
   playerEdge = new Sprite(sharp);			
@@ -40,8 +46,8 @@ function addSprites() {
   //Create the player sprite from the texture
   player1 = new Sprite(players1);			
   //Position the player sprite on the canvas
-  player1.x = 0;
-  player1.y = 320;			
+  player1.x = 100;
+  player1.y = 500;			
   player1.scale.x = 0.6;
   player1.scale.y = 0.6;
   // set its velocity
@@ -54,7 +60,7 @@ function addSprites() {
 
   let players2 = new PIXI.Texture(loader.resources["Assets/Player02.png"].texture﻿, new PIXI.Rectangle(0, 0, 400, 400));
   player2 = new Sprite(players2);			
-  player2.x = 0;
+  player2.x = 100;
   player2.y = 500;	  		
   player2.scale.x = 0.6;
   player2.scale.y = 0.6;		
@@ -67,8 +73,8 @@ function addSprites() {
 
   let players3 = new PIXI.Texture(loader.resources["Assets/Player03.png"].texture﻿, new PIXI.Rectangle(0, 0, 400, 400));
   player3 = new Sprite(players3);			
-  player3.x = 0;
-  player3.y = 320;	  		
+  player3.x = 100;
+  player3.y = 500;	  		
   player3.scale.x = 0.6;
   player3.scale.y = 0.6;		
   player3.vx = 0;
@@ -80,8 +86,8 @@ function addSprites() {
 
   let players4 = new PIXI.Texture(loader.resources["Assets/Player04.png"].texture﻿, new PIXI.Rectangle(0, 0, 400, 400));
   player4 = new Sprite(players4);			
-  player4.x = 0;
-  player4.y = 320;	  		
+  player4.x = 100;
+  player4.y = 500;	  		
   player4.scale.x = 0.6;
   player4.scale.y = 0.6;		
   player4.vx = 0;
@@ -92,76 +98,68 @@ function addSprites() {
   app.stage.addChild(player4);  
 
   // Get Enemy Sprites
-  let enemies1 = new PIXI.Texture(loader.resources["Assets/Enemy01.png"].texture﻿, new PIXI.Rectangle(0, 0, 150, 300));
+  let enemies1 = new PIXI.Texture(loader.resources["Assets/EnemySprites01.png"].texture﻿, new PIXI.Rectangle(0, 0, 400, 400));
   enemy1 = new Sprite(enemies1);			
-  enemy1.x = 600;
-  enemy1.y = 350;			
+  enemy1.x = 500;
+  enemy1.y = 500;			
   enemy1.vx = 0;
   enemy1.vy = 0;	
   enemy1.scale.x = 0.6;
   enemy1.scale.y = 0.6;	    
+  enemy1.anchor.x = 0.5;
+  enemy1.anchor.y = 1;
   app.stage.addChild(enemy1);
 
-  let enemies2 = new PIXI.Texture(loader.resources["Assets/Enemy02.png"].texture﻿, new PIXI.Rectangle(0, 0, 150, 300));
+  let enemies2 = new PIXI.Texture(loader.resources["Assets/EnemySprites01.png"].texture﻿, new PIXI.Rectangle(800, 0, 400, 400));
   enemy2 = new Sprite(enemies2);			
-  enemy2.x = 600;
-  enemy2.y = 350;			
+  enemy2.x = 500;
+  enemy2.y = 500;			
   enemy2.vx = 0;
   enemy2.vy = 0;	
   enemy2.visible = false;		
   enemy2.scale.x = 0.6;
   enemy2.scale.y = 0.6;
+  enemy2.anchor.x = 0.5;
+  enemy2.anchor.y = 1;
   app.stage.addChild(enemy2);
 
-  // Enemy weapons
-  let spears2 = new PIXI.Texture(loader.resources["Assets/WeaponSprites.png"].texture﻿, new PIXI.Rectangle(0, 80, 200, 20));
-  spear2 = new Sprite(spears2);			
-  spear2.x = 675;
-  spear2.y = 420;	  
-  spear2.anchor.x = 1;
-  spear2.anchor.y = 0.5;
-  spear2.visible = false;	
-  app.stage.addChild(spear2);
-
- 
-  let spears3 = new PIXI.Texture(loader.resources["Assets/WeaponSprites.png"].texture﻿, new PIXI.Rectangle(0, 30, 200, 42));
-  spear3 = new Sprite(spears3);			
-  spear3.x = 675;
-  spear3.y = 420;	  
-  spear3.anchor.x = 0.9;
-  spear3.anchor.y = 0.1;  
-  app.stage.addChild(spear3);
-
-  let spears4 = new PIXI.Texture(loader.resources["Assets/WeaponSprites.png"].texture﻿, new PIXI.Rectangle(0, 100, 200, 30));
-  spear4 = new Sprite(spears4);			
-  spear4.x = 675;
-  spear4.y = 420;	  
-  spear4.anchor.x = 0.9;
-  spear4.anchor.y = 0.5;
-  spear4.visible = false;	
-  app.stage.addChild(spear4);
-
-
-  // Enemy Arm Sprites
-  let eArms1 = new PIXI.Texture(loader.resources["Assets/Enemy01arm.png"].texture﻿, new PIXI.Rectangle(0, 0, 150, 300));
-  eArm1 = new Sprite(eArms1);			
-  eArm1.x = 600;
-  eArm1.y = 450;  
-  eArm1.scale.x = 0.6;
-  eArm1.scale.y = 0.6;	 
-  app.stage.addChild(eArm1);
-
-  let eArms2 = new PIXI.Texture(loader.resources["Assets/Enemy02arm.png"].texture﻿, new PIXI.Rectangle(0, 0, 150, 300));
-  eArm2 = new Sprite(eArms2);			
-  eArm2.x = 600;
-  eArm2.y = 450;  
-  eArm2.scale.x = 0.6;
-  eArm2.scale.y = 0.6;	 
-  eArm2.visible = false;  
-  app.stage.addChild(eArm2);
-
   player = player1;
-  enemy = enemy1;
-  enemyArm = eArm1;
-  eSpear = spear3;
+  enemy = enemy1; 
+}
+
+function newEnemySprites(round) {
+  if (round != 'Round 1') {
+    enemy1.visible = false;
+    if (round == 'Round 2') {
+      enemies1 = new PIXI.Texture(loader.resources["Assets/EnemySprites01.png"].texture﻿, new PIXI.Rectangle(0, 400, 400, 400));
+      enemies2 = new PIXI.Texture(loader.resources["Assets/EnemySprites01.png"].texture﻿, new PIXI.Rectangle(800, 400, 400, 400));    
+    } else if (round == 'Round 3') {
+      enemies1 = new PIXI.Texture(loader.resources["Assets/EnemySprites01.png"].texture﻿, new PIXI.Rectangle(0, 800, 400, 400));
+      enemies2 = new PIXI.Texture(loader.resources["Assets/EnemySprites01.png"].texture﻿, new PIXI.Rectangle(800, 800, 400, 400));    
+    }
+    enemy1 = new Sprite(enemies1);			
+    enemy1.x = 500;
+    enemy1.y = 500;			
+    enemy1.vx = 0;
+    enemy1.vy = 0;	
+    enemy1.scale.x = 0.6;
+    enemy1.scale.y = 0.6;	    
+    enemy1.anchor.x = 0.5;
+    enemy1.anchor.y = 1;    
+    app.stage.addChild(enemy1);
+
+    enemy2 = new Sprite(enemies2);			
+    enemy2.x = 500;
+    enemy2.y = 500;			
+    enemy2.vx = 0;
+    enemy2.vy = 0;	
+    enemy2.visible = false;		
+    enemy2.scale.x = 0.6;
+    enemy2.scale.y = 0.6;    
+    enemy2.anchor.x = 0.5;
+    enemy2.anchor.y = 1;
+    app.stage.addChild(enemy2);
+
+    enemy = enemy1;
+  }
 }

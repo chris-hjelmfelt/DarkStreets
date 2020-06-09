@@ -15,7 +15,7 @@
 
 		//Aliases
 		let Application = PIXI.Application,
-				loader = PIXI.loader,
+				loader = PIXI.loader, 
 				resources = PIXI.loader.resources,
 				Sprite = PIXI.Sprite;
         Rectangle = PIXI.Rectangle;
@@ -37,17 +37,13 @@
     // Load images and run the `setup` function when it's done
     loader
       .add("Assets/NoirCity.png")
-      .add("Assets/WeaponSprites.png")
       .add("Assets/HitBox.png")
       .add("Assets/Pspear.png")
       .add("Assets/Player01.png")
       .add("Assets/Player02.png")
       .add("Assets/Player03.png")
       .add("Assets/Player04.png")
-      .add("Assets/Enemy01.png")
-      .add("Assets/Enemy01arm.png")
-      .add("Assets/Enemy02.png")
-      .add("Assets/Enemy02arm.png")
+      .add("Assets/EnemySprites01.png")
       .load(setup);
 
     // Misc variables
@@ -98,6 +94,7 @@
       } else if (startDelay == 0){  // Start the new round
         mainMessage.text = round;
         mainMessage.visible = true;
+        newEnemySprites(round);
         resetRound();
       } else if (startDelay == 50){  // Countdown
         countMessage.text = "3";
@@ -124,6 +121,6 @@
   <script type="text/javascript" src="movement.js"></script>
   <script type="text/javascript" src="enemy_movement.js"></script>
   <!-- Javascript for health bars, etc -->
-  <script type="text/javascript" src="scoring.js"></script>
+  <script type="text/javascript" src="scoring.js"></script>  
 </body>
 </html>

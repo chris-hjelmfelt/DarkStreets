@@ -1,5 +1,6 @@
 let lastDir = 2; // last direction the enemy was traveling (don't change directions constantly)
 let xupdownx = 0;
+let barrier = 50
 
 function enemyMove() {
   let moveDir = Math.floor(Math.random()*100 + 1);  // which direction to move (1-8 is a new dir. 9-100 is the same as previous)
@@ -8,7 +9,7 @@ function enemyMove() {
   if (enemyNum == 1) {
     let updown = 0; // whether to move up and down to match player location
 
-    if ((player.x + 70) > enemy.x) { // try to stay to the right of the player
+    if ((player.x + barrier) > enemy.x) { // try to stay to the right of the player
       enemy.x += 5
       lastDir = 1;
       wall = false;
@@ -44,26 +45,12 @@ function enemyMove() {
       enemy.x += newX;
       enemy.y += newY;
 
-      // stop enemy at the boundaries
-      if (enemy.x > 730)	{		
-        enemy.x = 730;
-        wall = true;
-      } else if (enemy.y > 420) {  
-        enemy.y = 420;
-        wall = true;
-      } else if (enemy.x < 170)	{		
-        enemy.x = 170;
-        wall = true;
-      } else if (enemy.y < 320) {
-        enemy.y = 320;
-        wall = true;
-      } else  {
-        wall = false;	
-      }   
+      checkBoundaries();
+      
     }
   } else if (enemyNum == 2) {
     xupdownx += 1;
-    if ((player.x + 70) > enemy.x) { // try to stay to the right of the player
+    if ((player.x + barrier) > enemy.x) { // try to stay to the right of the player
       enemy.x += 5
       lastDir = 2;
       wall = false;
@@ -81,7 +68,7 @@ function enemyMove() {
       }
   
       // place to move to next
-      if ((player.x + 75) < enemy.x && moveDir <= 5) {
+      if ((player.x + barrier) < enemy.x && moveDir <= 5) {
         newX = -5;
         lastDir = 1;
       } else if (moveDir <= 7) {
@@ -98,26 +85,11 @@ function enemyMove() {
       enemy.x += newX;
       enemy.y += newY;
 
-      // stop enemy at the boundaries
-      if (enemy.x > 730)	{		
-        enemy.x = 730;
-        wall = true;
-      } else if (enemy.y > 420) {  
-        enemy.y = 420;
-        wall = true;
-      } else if (enemy.x < 170)	{		
-        enemy.x = 170;
-        wall = true;
-      } else if (enemy.y < 320) {
-        enemy.y = 320;
-        wall = true;
-      } else  {
-        wall = false;	
-      }   
+      checkBoundaries();
     }
   } else if (enemyNum == 3) {
     xupdownx += 1;
-    if ((player.x + 70) > enemy.x) { // try to stay to the right of the player
+    if ((player.x + barrier) > enemy.x) { // try to stay to the right of the player
       enemy.x += 5
       lastDir = 2;
       wall = false;
@@ -135,7 +107,7 @@ function enemyMove() {
       }
   
       // place to move to next
-      if ((player.x + 75) < enemy.x && moveDir <= 17) {
+      if ((player.x + barrier) < enemy.x && moveDir <= 17) {
         newX = -5;
         lastDir = 1;
       } else if (moveDir == 18) {
@@ -152,29 +124,30 @@ function enemyMove() {
       enemy.x += newX;
       enemy.y += newY;
 
-      // stop enemy at the boundaries
-      if (enemy.x > 730)	{		
-        enemy.x = 730;
-        wall = true;
-      } else if (enemy.y > 420) {  
-        enemy.y = 420;
-        wall = true;
-      } else if (enemy.x < 160)	{		
-        enemy.x = 160;
-        wall = true;
-      } else if (enemy.y < 320) {
-        enemy.y = 320;
-        wall = true;
-      } else  {
-        wall = false;	
-      }   
+      checkBoundaries();  
     }
   }
-  // Place Arm and Spear
-  enemyArm.x = enemy.x;
-  enemyArm.y = enemy.y;
-  eSpear.x = enemy.x + eSpearPlaceX + eThrust;
-  eSpear.y = enemy.y + eSpearPlaceY;
-  enemyEdge.x = enemy.x - 115;
-  enemyEdge.y = enemy.y + 80;
+  enemyhitbox.x = enemy.x + 30;
+  enemyhitbox.y = enemy.y - 155;
+  enemyEdge.x = enemy.x - 85;
+  enemyEdge.y = enemy.y - 60;
 } 
+
+// stop enemy at the given boundaries 
+function checkBoundaries() {  
+  if (enemy.x > 710)	{		
+    enemy.x = 710;
+    wall = true;
+  } else if (enemy.y > 600) {  
+    enemy.y = 600;
+    wall = true;
+  } else if (enemy.x < 270)	{		
+    enemy.x = 270;
+    wall = true;
+  } else if (enemy.y < 500) {
+    enemy.y = 500;
+    wall = true;
+  } else  {
+    wall = false;	
+  }   
+}
