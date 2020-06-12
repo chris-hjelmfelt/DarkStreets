@@ -1,2 +1,17 @@
 Size on Kongregate:
 830 x 625
+
+
+To Do:
+-- fix bug where player moves around by itself when attacking
+-- when one person is up and the other down, hits shouldn't work, remember the perspective, they are actually on the same level
+-- players head is dark grey
+
+
+
+
+Troubleshooting:
+-- I had a bug where the enemy was rising into the sky when I push towards them (makng them move back)
+    -- In the statements for trying to line up with the player I wasn't handling the player.x + barrier = enemy.x case
+       I don't know why they were trying to move up when they were already in line, but that seems to have fixed it
+  

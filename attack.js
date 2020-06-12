@@ -48,37 +48,37 @@ function pHitCheck() {
 
 function changePlayerStance(move){
   if (move == "P1") {
-    player1.x = player.x;
-    player1.y = player.y;
-    player1.visible = true;  
-    player = player1;     
-    player2.visible = false;
-    player3.visible = false;
-    player4.visible = false;
+    playerArray[0].x = player.x;
+    playerArray[0].y = player.y;
+    playerArray[0].visible = true;  
+    player = playerArray[0];     
+    playerArray[1].visible = false;
+    playerArray[2].visible = false;
+    playerArray[3].visible = false;
   } else if (move == "P2") {
-    player2.x = player.x;
-    player2.y = player.y;     
-    player2.visible = true; 
-    player = player2;
-    player1.visible = false;
-    player3.visible = false;
-    player4.visible = false;
+    playerArray[1].x = player.x;
+    playerArray[1].y = player.y;     
+    playerArray[1].visible = true; 
+    player = playerArray[1];
+    playerArray[0].visible = false;
+    playerArray[2].visible = false;
+    playerArray[3].visible = false;
   } else if (move == "P3") {
-    player3.x = player.x;
-    player3.y = player.y; 
-    player3.visible = true; 
-    player = player3;
-    player1.visible = false;
-    player2.visible = false;
-    player4.visible = false;
+    playerArray[2].x = player.x;
+    playerArray[2].y = player.y; 
+    playerArray[2].visible = true; 
+    player = playerArray[2];
+    playerArray[0].visible = false;
+    playerArray[1].visible = false;
+    playerArray[3].visible = false;
   } else if (move == "P4") {
-    player4.x = player.x;
-    player4.y = player.y; 
-    player4.visible = true; 
-    player = player4;
-    player1.visible = false;
-    player2.visible = false;
-    player3.visible = false;
+    playerArray[3].x = player.x;
+    playerArray[3].y = player.y; 
+    playerArray[3].visible = true; 
+    player = playerArray[3];
+    playerArray[0].visible = false;
+    playerArray[1].visible = false;
+    playerArray[2].visible = false;
   }
 }
 
