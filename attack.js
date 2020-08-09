@@ -51,6 +51,8 @@ function changePlayerStance(move){
     playerArray[0].x = player.x;
     playerArray[0].y = player.y;
     playerArray[0].visible = true;  
+    playerArray[0].vx = player.vx;
+    playerArray[0].vy = player.vy;
     player = playerArray[0];     
     playerArray[1].visible = false;
     playerArray[2].visible = false;
@@ -59,6 +61,8 @@ function changePlayerStance(move){
     playerArray[1].x = player.x;
     playerArray[1].y = player.y;     
     playerArray[1].visible = true; 
+    playerArray[1].vx = player.vx;
+    playerArray[1].vy = player.vy;
     player = playerArray[1];
     playerArray[0].visible = false;
     playerArray[2].visible = false;
@@ -67,6 +71,8 @@ function changePlayerStance(move){
     playerArray[2].x = player.x;
     playerArray[2].y = player.y; 
     playerArray[2].visible = true; 
+    playerArray[2].vx = player.vx;
+    playerArray[2].vy = player.vy;
     player = playerArray[2];
     playerArray[0].visible = false;
     playerArray[1].visible = false;
@@ -75,6 +81,8 @@ function changePlayerStance(move){
     playerArray[3].x = player.x;
     playerArray[3].y = player.y; 
     playerArray[3].visible = true; 
+    playerArray[3].vx = player.vx;
+    playerArray[3].vy = player.vy;
     player = playerArray[3];
     playerArray[0].visible = false;
     playerArray[1].visible = false;

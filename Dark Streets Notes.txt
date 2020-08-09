@@ -16,4 +16,5 @@ Troubleshooting:
 -- I had a bug where the enemy was rising into the sky when I push towards them (makng them move back)
     -- In the statements for trying to line up with the player I wasn't handling the player.x + barrier = enemy.x case
        I don't know why they were trying to move up when they were already in line, but that seems to have fixed it
-  
+-- player was moving around by itself when attacking
+   -- I added:  playerArray[0].vx = player.vx;  and   playerArray[0].vy = player.vy;  to changePlayerStance()  
