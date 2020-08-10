@@ -7,20 +7,20 @@ function enemyAttack() {
       if (stance <= 2){  // default
         changeEnemyStance("E2");
         if (enemyNum == 1) {
-          eDamage = 2 //12;
+          eDamage = 12;
         } else if (enemyNum == 2){
-          eDamage = 2 //20;
+          eDamage = 20;
         } else if (enemyNum == 3){
-          eDamage = 2 //20;
+          eDamage = 20;
         }        
       } else {      
         changeEnemyStance("E3");
         if (enemyNum == 1) {
-          eDamage = 2 //5;
+          eDamage = 5;
         } else if (enemyNum == 2){
-          eDamage = 2 //10;
+          eDamage = 10;
         } else if (enemyNum == 3){
-          eDamage = 2 //18;
+          eDamage = 18;
         } 
         setTimeout(changeEnemyStance.bind(null, "E4"), 200);   
         setTimeout(changeEnemyStance.bind(null, "E2"), 350);       

@@ -3,12 +3,10 @@ Size on Kongregate:
 
 
 To Do:
--- fix bug where player moves around by itself when attacking
--- when one person is up and the other down, hits shouldn't work, remember the perspective, they are actually on the same level
-    -- change hitbox heights
--- players head is dark grey
--- create a timer like in minecraft for full power hits vs low power hits
-    -- also maybe two hitboxes- one low power, one high
+-- full power hits vs low power hits
+    -- create a timer like in minecraft so spam clicking is less effective
+    -- get more damage by switching between attack types (at least every two or three hits - avoid just a single attack type)
+    -- ? also maybe two hitboxes (closer and further) - one low power, one high
 
 
 

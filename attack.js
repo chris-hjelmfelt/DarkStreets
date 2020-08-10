@@ -8,12 +8,12 @@ function playerAttack(attackNum) {
   if (pWait == false){ // enough time has passed between hits
     pWait = true;            
     if (attackNum == "1"){ 
-      pDamage = 5;    
+      pDamage = 15;    
       changePlayerStance("P2");
       setTimeout(changePlayerStance.bind(null, "P1"), 200);
       setTimeout(function(){pWait = false;}, 400); // delay before another hit  
     } else if (attackNum == "2"){ 
-      pDamage = 10;
+      pDamage = 20;
       changePlayerStance("P4");
       setTimeout(changePlayerStance.bind(null, "P3"), 50);
       setTimeout(changePlayerStance.bind(null, "P4"), 200);

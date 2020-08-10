@@ -16,7 +16,6 @@ function enemyMove() {
     ReactToPlayerLocation();
 
     if (!reacting) {    
-      console.log("not reacting");
       if (moveDir > 8){ // give preference to the direction traveled last
         if (wall == true)
           moveDir = 1; 
@@ -108,7 +107,7 @@ function enemyMove() {
     }
   }
   enemyhitbox.x = enemy.x + 30;
-  enemyhitbox.y = enemy.y - 155;
+  enemyhitbox.y = enemy.y - 80;
   enemyEdge.x = enemy.x - 85;
   enemyEdge.y = enemy.y - 60;
 } 
@@ -135,23 +134,19 @@ function checkBoundaries() {
 
 function ReactToPlayerLocation() {  
   if ((player.x + barrier) > enemy.x) { // try to stay to the right of the player
-    console.log("back off");
     enemy.x += 5
     lastDir = 1;
     wall = false;
     reacting = true;
   } else if (player.y > enemy.y && updown == enemyLineupPreference){ // preference for trying to line up with the player
-    console.log("down");
     enemy.y += 5;
     updown = 0;
     reacting = true;
   } else if (player.y < enemy.y && updown == enemyLineupPreference){
-    console.log("up");
     enemy.y += -5
     updown = 0;
     reacting = true;
   }
-  console.log("done");
 }
 
 function ReactToPlayerLocation2() {  

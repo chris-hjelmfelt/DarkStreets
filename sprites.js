@@ -13,7 +13,7 @@ function addSprites() {
   background.scale.y = .6;
   app.stage.addChild(background);  
 
-  let hb = new PIXI.Texture(loader.resources["Assets/HitBox.png"].texture﻿, new PIXI.Rectangle(0, 0, 50, 120));
+  let hb = new PIXI.Texture(loader.resources["Assets/HitBox.png"].texture﻿, new PIXI.Rectangle(0, 0, 50, 30));
   playerhitbox = new Sprite(hb); 
   playerhitbox.x = 0;
   playerhitbox.y = 0; 
@@ -86,7 +86,7 @@ function addSprites() {
   enemySprite4 = new Sprite(enemies4);
   enemyArray.push(enemySprite4);
   for (i = 0; i < enemyArray.length; i++) { 
-    enemyArray[i].x = 500;
+    enemyArray[i].x = 630;
     enemyArray[i].y = 500;			
     enemyArray[i].vx = 0;
     enemyArray[i].vy = 0;	
@@ -143,7 +143,7 @@ function newEnemySprites(round) {
     }
 
     for (i = 0; i < enemyArray.length; i++) { 
-      enemyArray[i].x = 500;
+      enemyArray[i].x = 630;
       enemyArray[i].y = 500;			
       enemyArray[i].vx = 0;
       enemyArray[i].vy = 0;	

@@ -11,7 +11,7 @@ function playerMove() {
     player.y = 500;	  
 
   playerhitbox.x = player.x - 30;
-  playerhitbox.y = player.y - 150;
+  playerhitbox.y = player.y - 75;
   playerEdge.x = player.x + 100;
   playerEdge.y = player.y - 60;
 }
@@ -20,13 +20,13 @@ function defaultPositions() {
   player.x = 100;
   player.y = 500;
   playerhitbox.x = player.x - 30;
-  playerhitbox.y = player.y - 150;
+  playerhitbox.y = player.y - 75;
   playerEdge.x = player.x + 100;
   playerEdge.y = player.y - 60;
-  enemy.x = 500;
+  enemy.x = 630;
   enemy.y = 500;
-  enemyEdge.x = enemy.x - 115;
-  enemyEdge.y = enemy.y + 80;
+  enemyEdge.x = enemy.x - 85;
+  enemyEdge.y = enemy.y - 60;
   enemyhitbox.x = enemy.x + 30;
-  enemyhitbox.y = enemy.y - 155;
+  enemyhitbox.y = enemy.y - 80;
 }
